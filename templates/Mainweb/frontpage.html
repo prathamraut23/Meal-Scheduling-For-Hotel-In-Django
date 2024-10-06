@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Mainweb/frontpage.css' %}">
+
+    <title>Meal</title>
+</head>
+<body>
+    {% load static %}
+    <nav class="navbar">
+        <div class="manager"> <a href="/Manager/managerlogin"> Manager </a> </div>
+        <a href="#" class="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navele">
+            <ul>
+               <li><a href="/">Home</a></li>
+               <!-- <li><a href="#">Menu</a></li> -->
+               <li><a href="/booking">Booking</a></li>
+               <li><a href="#about">About</a></li>
+               <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    <div class="upper">
+        <div class="img1"></div>
+        <div class="head1">Taste the Best</div>
+    </div>
+        <div class="lower">
+            <div class="buttons head2">
+                <!-- <button class="b1"> HEY !!! Book Your Table Now </button> -->
+                <!-- <button class="b2"> Take A Look On Menu </button> -->
+                <!-- <button class="b3"> Menu </button> -->
+                What will you eat Today ?
+            </div>
+            <div class="img2"></div>
+        </div>
+    </div>
+
+    <div class="blackbox" id="about">
+        <div class="offer"><h1>10% OFF ON SUNDAY</h1></div>
+        <div class="timing">
+            <h1 class = "h1">Timing</h1>
+            <ul>
+                <li> Monday &nbsp &nbsp <span class="display">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span> 9:00 - 10:00</li>
+                <li>Tueday &nbsp &nbsp <span class="display">&nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp</span>  10:00 - 10:00</li>
+                <li>Wednesday &nbsp &nbsp <span class="display">&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp</span>  10:00 - 10:00</li>
+                <li>Thursday &nbsp &nbsp <span class="display">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>  9:00 - 10:00</li>
+                <li>Friday &nbsp &nbsp <span class="display"> &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span> 9:00 - 10:00</li>
+                <li>Saturday &nbsp &nbsp <span class="display">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>  9:00 - 11:00</li>
+                <li>&nbspSunday &nbsp &nbsp <span class="display">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>  9:00 - 11:00</li>
+            </ul>
+        </div>
+        <div class="rating"> <h1>Top rating</h1></div>
+    </div>
+
+    <div class="query" id="contact">
+        <div class="contact">
+            <form action="" onsubmit="sendEmail(); reset(); return false";>
+                <h1>Contact</h1>
+                <label for="Name"> Name </label>
+                <input type="text" id ="name" placeholder="" required>
+                <label for="email">Email</label>
+                <input type="email" id ="email" placeholder="" required>
+                <label for="text">Phone</label>
+                <input type="phone" id ="phone" placeholder="" required>
+                <label for="textarea">How can we help you ?</label>
+                <textarea name="" id="textarea" cols="30" rows="5"></textarea>
+                <button class=""submit> Submit</button>
+            </form>
+        </div>
+        <div class="con-img"></div>
+    </div>
+
+    <div class="connect"> <h1>Connect With Us On Social Media</h1></div>
+    <div class="footer"></div>
+    <!-- <div class="social">
+        Instagram Facebook
+    </div> -->
+<script>
+const toggleButton = document.getElementsByClassName('toggle')[0]
+const navele = document.getElementsByClassName('navele')[0]
+        
+toggleButton.addEventListener('click', () => {
+    navele.classList.toggle('active')
+})
+</script>
+
+<script src="https://smtpjs.com/v3/smtp.js"> </script>
+<script>
+    function sendEmail(){
+        Email.send({
+            Host : "smtp.gmail.com",
+            Username : "prathambannore@gmail.com",
+            Password : "aqgzakdkzjwgfoho",
+            To : 'prathambannore@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "Enquiry",
+            Body : "Name :" + document.getElementById("name") + "<br>" +
+                   "Email : " + document.getElementById("email") + "<br>" +
+                   "Phone : " + document.getElementById("phone") + "<br>" +
+                   "Message : " + document.getElementById("textarea")
+        }).then(
+        message => alert("Message Sent Successfully")
+        );
+    }
+</script>
+</body>
+
+</html>

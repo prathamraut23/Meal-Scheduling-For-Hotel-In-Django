@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/Manager/additems.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% load static %}
+    <nav class="navbar">
+        <div class="manager"> <a href="/Manager/logout"> Logout </a> </div>
+        <a href="#" class="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navele">
+            <ul>
+               <li><a href="/Manager/mfront">Orders</a></li>
+               <li><a href="/Manager/history">History</a></li>
+               <li><a href="/Manager/additems">Add Items</a></li>
+               <li><a href="/Manager/delitem">Delete Items</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="add-item">
+        <form action="/Manager/add" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Add Dish</h1>
+            <label for="Name"> Dish Name </label>
+            <input type="text" id ="name" placeholder="" name ="dishname" required>
+            <label for="category">Dish Category</label> 
+            <!-- <input type="text" id ="name" placeholder="" required> -->
+            <select name="category" id="category" >
+                <option value="breakfast"> Breakfast </option>
+                <option value="sabji"> Sabji </option>
+                <option value="roti"> Roti </option>
+                <option value="beverages"> Bevrages </option>
+            </select>
+            <label for="price">Dish Price</label>
+            <input type="number" id ="price" placeholder="" name="price" required>
+            <label for="image">Image</label>
+            <input type="file" id="image" placeholder="" name="images" accept="image/*" required>
+            <button type="submit"> Add</button>
+        </form>
+    </div>
+<script>
+        const toggleButton = document.getElementsByClassName('toggle')[0]
+        const navele = document.getElementsByClassName('navele')[0]
+                
+        toggleButton.addEventListener('click', () => {
+        navele.classList.toggle('active')
+    })
+</script>
+</body>
+</html>

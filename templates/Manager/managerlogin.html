@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Manager/managerlogin.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+</head>
+<body>
+    {%load static %}
+    <div class="login">
+        <div class="form">
+          <form class="login-form" action="/Manager/login" method="post">
+              {% csrf_token %}
+            <span class="material-symbols-outlined">
+              lock
+              </span>
+            <input type="text" placeholder="Username" name="username" required />
+            <input type="password" placeholder="Password" name="password" required />
+            <button type="submit">Login</button>
+          </form>  
+        </div>
+      </div>
+      <script>
+        const toggleButton = document.getElementsByClassName('toggle')[0]
+        const navele = document.getElementsByClassName('navele')[0]
+                
+        toggleButton.addEventListener('click', () => {
+            navele.classList.toggle('active')
+        })
+    </script>
+    </body>
+</html>

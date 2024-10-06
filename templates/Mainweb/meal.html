@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/Mainweb/meal.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% load static %}
+    <nav class="navbar">
+        <div class="manager"> <a href="/Manager/managerlogin"> Manager </a> </div>
+        <a href="#" class="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navele">
+            <ul>
+               <li><a href="/">Home</a></li>
+               <li><a href="#">Menu</a></li>
+               <li><a href="/booking">Booking</a></li>
+               <li><a href="/">About</a></li>
+               <li><a href="/">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<div class="search">
+        <input type="text" placeholder="Search Item">
+        <button> Go </button>
+</div> 
+<div class="category">
+    <div class="cat-item"> <a href="#breakfast-con"> Breakfast </a> </div>
+    <div class="cat-item" id ="sabji"> <a href="#sabji-con"> Sabji </a> </div>
+    <div class="cat-item" id="roti"> <a href="#roti-con"> Roti </a> </div>
+    <div class="cat-item"> <a href="#beverages-con"> Beverages </a> </div>
+</div>
+
+<form action="/order" method="post">
+    {% csrf_token %}
+<div class="category-items" id="breakfast-con">
+    <h1>Breakfast</h1>
+    <div class="heading">
+        <div class="head"> Name </div>
+        <div class="head photo"> Photo </div>
+        <div class="head "> Price</div>
+        <!-- <div class="head"> Add</div> -->
+        <div class="head"> Quantity</div>
+    </div>
+    {% for i in Breakfast %}
+    <div class="break-item">
+        <div class="break-cont" id="name"> {{i.dish_name}} </div>
+        <div class="break-cont photo" id="photo"> <img src="/media/{{i.image}}" alt="" width="100%" height="100%"> </div>
+        <div class="break-cont " id="price"> {{i.dish_price}} </div>
+        <!-- <div class="break-cont" id="add"> <button> Add </button> </div> -->
+        <div class="break-cont" id="add"> <input type="number" defaultValue="0" name="{{i.image}}"  min="0" max="50" placeholder = "Quantity"> </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="category-items" id ="sabji-con">
+    <h1>Sabji</h1>
+    <div class="heading">
+        <div class="head"> Name </div>
+        <div class="head photo"> Photo </div>
+        <div class="head "> Price</div>
+        <!-- <div class="head"> Add</div> -->
+        <div class="head"> Quantity</div>
+    </div>
+    {% for i in Sabji %}
+    <div class="break-item">
+        <div class="break-cont" id="name"> {{i.dish_name}} </div>
+        <div class="break-cont photo" id="photo"> <img src="/media/{{i.image}}" alt="" width="100%" height="100%"> </div>
+        <div class="break-cont " id="price"> {{i.dish_price}} </div>
+        <!-- <div class="break-cont" id="add"> <button> Add </button> </div> -->
+        <div class="break-cont" id="add"> <input type="number" defaultValue="0" name="{{i.image}}" min="0" max="50" placeholder = "Quantity"> </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="category-items" id="roti-con">
+    <h1>Roti</h1>
+    <div class="heading">
+        <div class="head"> Name </div>
+        <div class="head photo"> Photo </div>
+        <div class="head "> Price</div>
+        <!-- <div class="head"> Add</div> -->
+        <div class="head"> Quantity</div>
+    </div>
+    {% for i in Roti %}
+    <div class="break-item">
+        <div class="break-cont" id="name"> {{i.dish_name}} </div>
+        <div class="break-cont photo" id="photo"> <img src="/media/{{i.image}}" alt="" width="100%" height="100%"> </div>
+        <div class="break-cont " id="price"> {{i.dish_price}} </div>
+        <!-- <div class="break-cont" id="add"> <button> Add </button> </div> -->
+        <div class="break-cont" id="add"> <input type="number" defaultValue="0" name="{{i.image}}"  min="0" max="50" placeholder = "Quantity"> </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="category-items" id="beverages-con">
+    <h1>Beverages</h1>
+    <div class="heading">
+        <div class="head"> Name </div>
+        <div class="head photo"> Photo </div>
+        <div class="head "> Price</div>
+        <!-- <div class="head"> Add</div> -->
+        <div class="head"> Quantity</div>
+    </div>
+    {% for i in Brev %}
+    <div class="break-item">
+        <div class="break-cont" id="name"> {{i.dish_name}} </div>
+        <div class="break-cont photo" id="photo"> <img src="/media/{{i.image}}" alt="" width="100%" height="100%"> </div>
+        <div class="break-cont " id="price"> {{i.dish_price}} </div>
+        <!-- <div class="break-cont" id="add"> <button> Add </button> </div> -->
+        <div class="break-cont" id="add"> <input type="number" defaultValue="0" name="{{i.image}}" min="0" max="50" placeholder = "Quantity"> </div>
+    </div>
+    {% endfor %}
+</div>
+
+ <div class="fixed"> <button type ="submit"> Done </button> </div>
+</form>
+<script>
+    const toggleButton = document.getElementsByClassName('toggle')[0]
+    const navele = document.getElementsByClassName('navele')[0]
+            
+    toggleButton.addEventListener('click', () => {
+        navele.classList.toggle('active')
+    })
+</script>
+</body>
+</html>

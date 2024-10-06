@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/Mainweb/bill.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% load static %}
+    <nav class="navbar">
+        <div class="manager"> <a href="?Manager/managerlogin"> Manager </a> </div>
+        <a href="#" class="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navele">
+            <ul>
+               <li><a href="/">Home</a></li>
+               <!-- <li><a href="#">Menu</a></li> -->
+               <li><a href="/booking">Booking</a></li>
+               <li><a href="/">About</a></li>
+               <li><a href="/">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="bill">
+        <h1> Order Bill </h1>
+        <div class="head">
+            <div class="name"> Dish </div>
+            <div class="name"> Price </div>
+            <div class="name"> Quantity </div>
+            <div class="name"> Total </div>
+        </div>
+        {% load index %}
+        {% for i in nn %}
+        <div class="items">
+            <div class="name"> {{ display_dish|index:i }} </div>
+            <div class="name"> {{ display_price|index:i }} </div>
+            <div class="name "> {{ display_quantity|index:i }} </div>
+            <div class="name"> {{ display_dishtotal|index:i }} </div>
+        </div>
+        {% endfor %}
+        <div class="total"> Total = {{display_total}} </div>
+        <div class="offer"> *{{offer}} </div>
+    </div>
+
+
+<script>
+        const toggleButton = document.getElementsByClassName('toggle')[0]
+        const navele = document.getElementsByClassName('navele')[0]
+                
+        toggleButton.addEventListener('click', () => {
+            navele.classList.toggle('active')
+        })
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/Manager/deleteitems.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    {% load static %}
+    <nav class="navbar">
+        <div class="manager"> <a href="/Manager/logout"> Logout </a> </div>
+        <a href="#" class="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navele">
+            <ul>
+               <li><a href="/Manager/mfront">Orders</a></li>
+               <li><a href="/Manager/history">History</a></li>
+               <li><a href="/Manager/additems">Add Items</a></li>
+               <li><a href="/Manager/delitem">Delete Items</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="del-item">
+        <form action="/Manager/delete" method="post">
+            {% csrf_token %}
+            <h1>Delete Dish</h1>
+            <label for="dish"> Dish Name </label>
+            <select name="dish" id="dish">
+                {% for i in allitems %}
+                <option value="{{i.dish_name}}"> {{i.dish_name}} </option>
+                {% endfor %}
+            </select>
+
+            <button type="submit"> Delete </button>
+        </form>
+    </div>
+    <script>
+        const toggleButton = document.getElementsByClassName('toggle')[0]
+        const navele = document.getElementsByClassName('navele')[0]
+                
+        toggleButton.addEventListener('click', () => {
+            navele.classList.toggle('active')
+        })
+    </script>
+</body>
+</html>

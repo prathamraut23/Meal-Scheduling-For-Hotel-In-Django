@@ -1,0 +1,25 @@
+Date: 12/6/2022
+Time: 17:42
+Phone Number: +917741041902
+Message: Dish Quantity PriceDosa 3 60French Fries 2 80Noodles 3 100Total=640
+--------------------
+Date: 12/6/2022
+Time: 17:46
+Phone Number: +917741041902
+Message: Dish Quantity PriceDosa 3 60Total=180
+--------------------
+Date: 12/6/2022
+Time: 17:54
+Phone Number: +918421052137
+Message: Dish Quantity PriceCold Drink 2 40Dal Makhani 2 110Paratha 3 40Total=420
+--------------------
+Date: 12/6/2022
+Time: 18:1
+Phone Number: +917020025371
+Message: Dish Quantity PriceVeg Burger 2 80Noodles 2 100Total=360
+--------------------
+Date: 13/6/2022
+Time: 2:24
+Phone Number: +917058041895
+Message: Dish Quantity PriceDosa 2 60French Fries 3 80Total=360
+--------------------

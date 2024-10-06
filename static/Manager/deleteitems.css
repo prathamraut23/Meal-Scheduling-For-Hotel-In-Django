@@ -1,0 +1,204 @@
+html{
+    height: 100%;
+}
+body{
+    font-family: basic-sans, sans-serif;
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+    /* background-image: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%); */
+    background-size: 101%;
+    /* background-image: linear-gradient(90deg, #f0796a , rgb(167, 3, 167) , #f07464 ); */
+
+    /* background-color: #FA8BFF;
+    background-image: linear-gradient(90deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%); */
+
+    /* background-color: #4158D0;
+    background-image: linear-gradient(90deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
+
+    background-image: url(/static/images/Background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+@keyframes bg-animation{
+    0% {background-position: left}
+    50% {background-position: right}
+    100% {background-position: left}
+  }
+  
+.navbar {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #85FFBD;
+    background-image: linear-gradient(90deg, #85FFBD 0%, #FFFB7D 70%, #f9ddb7 100%); 
+    color: white;
+    padding: 15px;
+}
+
+.manager a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    margin-left: 45px;
+}
+
+.navele ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /* justify-content: space-between; */
+}
+
+.navele ul li{
+    list-style: none;
+    margin-right: 25px;
+}
+
+.navele ul li a{
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    padding-right: 55px;
+    color: black;
+    font-size: 22px;
+}
+
+.navele ul li a:hover{
+    font-weight: bold;
+    transform: scale(1.05)
+}
+.toggle{
+    position: absolute;
+    top: 19px;
+    right: 50px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.toggle .bar{
+    background-color: black;
+    width:100%;
+    height:3px;
+    border-radius: 10px;
+}
+.del-item{
+    display: flex;
+    justify-content: center;
+}
+form{
+    display: flex;
+    /* justify-content: center; */
+    height: 370px;
+    width: 30%;
+    flex-direction: column;
+    padding: 15px 30px 15px 30px;
+    margin-top: 200px;
+    background-color: #85FFBD;
+    background-image: linear-gradient(90deg, #85FFBD 0%, #FFFB7D 50%, #f9ddb7 100%);    
+    background-size: 200%;
+    animation: bg-animation 15s infinite; 
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+form h1{
+    text-align: center;
+    font-size:45px;
+    margin: 5px;
+    margin-bottom:35px;
+}
+form label{
+    /* padding: 8px; */
+    margin: 0px 40px 5px 40px;
+    font-size: 25px;
+}
+form select {
+    border: 0;
+    outline: none;
+    margin: 0px 40px 50px 40px;
+    width:85%;
+    padding: 12px;
+    border-radius: 5px;
+    font-size:18px;
+}
+
+form button{
+    width: 40%;
+    outline:none;
+    border: none;
+    margin : 10px auto ;
+    padding: 12px;
+    border-radius: 5px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+
+@media (max-width: 970px) {
+    .navele{
+        display: none;
+        width:100%;
+    }
+
+    .toggle{
+        display: flex;
+    }
+
+    .navbar{
+        /* width: 104%; */
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navele ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .navele ul li{
+        text-align: center;
+    }
+    .navele ul li a{
+        padding: 15px;
+    }
+    .navele.active{
+        display:flex;
+    }
+
+}
+
+@media (max-width:1200px){
+    .del-item{
+        margin: 0px;
+    }
+
+    form{
+        height: 270px;
+        width: auto;
+    }
+    form label{
+        /* padding: 8px; */
+        margin: 0px 8px 4px 8px;
+        font-size: 18px;
+    }
+
+    form select{
+        width: 92%;
+        margin: 0px 8px 15px 8px;
+        padding: 4px;
+    }
+
+    form button{
+        width: 35%;;
+        padding: 5px;
+        font-size:16px;
+    }
+
+}
